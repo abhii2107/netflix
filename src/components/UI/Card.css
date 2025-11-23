@@ -1,17 +1,96 @@
-/* Full dark cinematic background section */
-.movie-section {
-    background: var(--primary-bg);   /* same dark bg as header/footer */
-    padding: 3rem 0;
-    width: 100%;
+/* === GLOBAL BLACK BACKGROUND === */
+body,
+.movie-section,
+.container.grid {
+    background: #000 !important;   /* pure black */
 }
 
-/* Main grid container */
+/* Card Wrapper */
+.hero-container {
+    list-style: none;
+}
+
+/* Main Movie Card */
+.main-container {
+    position: relative;
+    width: 220px;
+    background: #0a0a0a;   /* deep dark but not fully black */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect: lift + glow */
+.main-container:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(229, 9, 20, 0.35);
+}
+
+/* Poster Area */
+.poster-container {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+.poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+/* Slight zoom on hover */
+.main-container:hover .poster {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Watch Now Button Container */
+.ticket-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    justify-content: center;
+}
+
+/* Show overlay on hover */
+.main-container:hover .ticket-container {
+    opacity: 1;
+}
+
+/* Button styling */
+.ticket-buy-btn {
+    padding: 10px 20px;
+    background: var(--accent);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.ticket-buy-btn:hover {
+    background: #b50810;
+    transform: translateY(-2px);
+}
+
+/* Grid container */
 .container.grid {
     max-width: 1200px;
     margin: auto;
-    padding: 1rem;
+    padding: 2rem 1rem;
     display: grid;
     gap: 2rem;
+    background: #000;   /* solid black */
 }
 
 /* 4-column layout */
@@ -19,24 +98,32 @@
     grid-template-columns: repeat(4, 1fr);
 }
 
-/* Tablet */
+/* Responsive: tablets */
 @media (max-width: 1024px) {
     .grd-four--cols {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Mobile Large */
+/* Responsive: large phones */
 @media (max-width: 768px) {
     .grd-four--cols {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Mobile Small */
+/* Responsive: small phones */
 @media (max-width: 480px) {
     .grd-four--cols {
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
+    }
+
+    .main-container {
+        width: 160px;
+    }
+
+    .poster-container {
+        height: 240px;
     }
 }
