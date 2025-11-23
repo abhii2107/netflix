@@ -1,0 +1,42 @@
+/* Full dark cinematic background section */
+.movie-section {
+    background: var(--primary-bg);   /* same dark bg as header/footer */
+    padding: 3rem 0;
+    width: 100%;
+}
+
+/* Main grid container */
+.container.grid {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    display: grid;
+    gap: 2rem;
+}
+
+/* 4-column layout */
+.grd-four--cols {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .grd-four--cols {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    .grd-four--cols {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .grd-four--cols {
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+    }
+}
