@@ -7,6 +7,8 @@ import AppLayout from "./components/layout/AppLayout";
 import "./App.css"
 import { ErrorPages } from "./pages/ErrorPages";
 import { getMoviesData } from "./API/GetApiData";
+import { MovieDetails } from "./components/UI/MovieDetails";
+import { getMovieDetails } from "./API/GetMovieDetails";
 const App = () => {
   const router = createBrowserRouter([
 
@@ -32,6 +34,13 @@ const App = () => {
           element: <Movie />,
           // the unction that you have created to fetch api data you have to pass that value in loader
           loader: getMoviesData,
+        },
+
+        {
+          path: "/movie/:movieID",
+          element: <MovieDetails/>,
+          loader: getMovieDetails ,
+          
         },
 
         {
